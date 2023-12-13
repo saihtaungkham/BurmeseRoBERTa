@@ -3,6 +3,7 @@ license: apache-2.0
 ---
 
 # Burmese RoBERTa
+You can access the model from the [HuggingFace Repository](https://huggingface.co/saihtaungkham/BurmeseRoBERTa).
 
 ## Description
 The model is adopted from the RoBERTa base model and trained using Masked Language Modeling (MLM) with the following datasets:
