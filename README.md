@@ -3,7 +3,7 @@ license: apache-2.0
 ---
 
 # Burmese RoBERTa
-Model is available via [HuggingFace Repository](https://huggingface.co/saihtaungkham/BurmeseRoBERTa).
+
 ## Description
 The model is adopted from the RoBERTa base model and trained using Masked Language Modeling (MLM) with the following datasets:
 
@@ -55,6 +55,26 @@ print(fill_mask("ရန်ကုန်သည် မြန်မာနိုင�
   'token': 2723,
   'token_str': 'အရှေ့ပိုင်း',
   'sequence': 'ရန်ကုန်သည် မြန်မာနိုင်ငံ၏ အရှေ့ပိုင်း ဖြစ်သည်။'}]
+```
+
+## How to use only the trained tokenizer for Burmese sentences
+```python
+from transformers import AutoTokenizer
+
+model_name = "saihtaungkham/BurmeseRoBERTa"
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+text = "သဘာဝဟာသဘာဝပါ။"
+
+# Tokenized words
+print(tokenizer.tokenize(text))
+# Expected Output
+# ['▁', 'သဘာဝ', 'ဟာ', 'သဘာဝ', 'ပါ။']
+
+# Tokenized IDs for training other models
+print(tokenizer.encode(text))
+# Expected Output
+# [1, 3, 1003, 30, 1003, 62, 2]
+
 ```
 
 ## Extract text embedding from the sentence
